@@ -8,18 +8,21 @@ import { Map } from "./components/Map";
 import { KOAActivities } from "./components/KOAActivities";
 import { Rooms } from "./components/Rooms";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: Root,
-    children: [
-      { index: true, Component: Home },
-      { path: "schedule", Component: Schedule },
-      { path: "tshirts", Component: TShirtSizes },
-      { path: "gallery", Component: Gallery },
-      { path: "map", Component: Map },
-      { path: "koa", Component: KOAActivities },
-      { path: "rooms", Component: Rooms },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      Component: Root,
+      children: [
+        { index: true, Component: Home },
+        { path: "schedule", Component: Schedule },
+        { path: "tshirts", Component: TShirtSizes },
+        { path: "gallery", Component: Gallery },
+        { path: "map", Component: Map },
+        { path: "koa", Component: KOAActivities },
+        { path: "rooms", Component: Rooms },
+      ],
+    },
+  ],
+  { basename: "/family-reunion" }
+);
