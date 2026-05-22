@@ -20,4 +20,4 @@ export const router = createBrowserRouter([
       { path: "koa", Component: KOAActivities },
     ],
   },
-]);
+], { basename: "/family-reunion" });
