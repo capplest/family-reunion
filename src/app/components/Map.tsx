@@ -39,7 +39,7 @@ export function Map() {
               <Clock className="size-4 mt-1 text-accent" />
               <div>
                 <p className="font-medium">Check-in</p>
-                <p className="text-muted-foreground">Tuesday, July 15 • 4:00 PM</p>
+                <p className="text-muted-foreground">Wednesday, July 15 • 4:00 PM</p>
               </div>
             </div>
 
@@ -47,7 +47,7 @@ export function Map() {
               <Clock className="size-4 mt-1 text-accent" />
               <div>
                 <p className="font-medium">Check-out</p>
-                <p className="text-muted-foreground">Saturday, July 19 • 11:00 AM</p>
+                <p className="text-muted-foreground">Sunday, July 19 • 11:00 AM</p>
               </div>
             </div>
           </CardContent>

@@ -3,32 +3,32 @@ import { Calendar, Clock, MapPin } from "lucide-react";
 
 const scheduleData = [
   {
-    date: "Tuesday, July 15",
+    date: "Wednesday, July 15",
     events: [
       { time: "4:00 PM", title: "Check-in at Santa Cruz KOA", location: "KOA Main Office", description: "Arrive and check into your campsite. Pick up your welcome packet and reunion t-shirt!" },
       { time: "Evening", title: "Settle In", location: "Your Campsite", description: "Get settled, set up camp, and relax after your travels." },
     ],
   },
   {
-    date: "Wednesday, July 16",
+    date: "Thursday, July 16",
     events: [
       { time: "TBD", title: "Activities & Events", location: "Various", description: "Schedule to be announced - stay tuned for more details!" },
     ],
   },
   {
-    date: "Thursday, July 17",
+    date: "Friday, July 17",
     events: [
       { time: "TBD", title: "Activities & Events", location: "Various", description: "Schedule to be announced - stay tuned for more details!" },
     ],
   },
   {
-    date: "Friday, July 18",
+    date: "Saturday, July 18",
     events: [
       { time: "TBD", title: "Activities & Events", location: "Various", description: "Schedule to be announced - stay tuned for more details!" },
     ],
   },
   {
-    date: "Saturday, July 19",
+    date: "Sunday, July 19",
     events: [
       { time: "11:00 AM", title: "Check-out from Santa Cruz KOA", location: "KOA Main Office", description: "Say goodbye and safe travels home! Thank you for joining us!" },
     ],
