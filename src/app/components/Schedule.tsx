@@ -84,21 +84,6 @@ export function Schedule() {
           ))}
         </div>
 
-        {/* Notes Section */}
-        <Card className="mt-12 bg-muted">
-          <CardHeader>
-            <CardTitle>Important Notes</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>• All times are approximate and subject to change</li>
-              <li>• Please let us know if you have any dietary restrictions</li>
-              <li>• Dress code: Casual for most events, semi-formal for Saturday banquet</li>
-              <li>• Weather can vary - bring layers and sunscreen!</li>
-              <li>• Optional activities may have additional costs</li>
-            </ul>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

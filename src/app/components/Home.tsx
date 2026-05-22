@@ -92,7 +92,7 @@ export function Home() {
                 Santa Cruz offers the perfect backdrop for our family gathering. From towering redwoods to stunning Pacific beaches, we'll enjoy the best of California's natural beauty. (AI wrote that)
               </p>
               <p className="text-lg text-muted-foreground">
-                But really, we're looking forward to good food in beautiful places with our favorite people, cousin giggles, and s'mores.
+                But really, we're looking forward to good food in beautiful places with our favorite people.
               </p>
             </div>
             <div className="rounded-lg overflow-hidden shadow-xl">

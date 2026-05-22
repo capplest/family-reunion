@@ -6,6 +6,7 @@ import { TShirtSizes } from "./components/TShirtSizes";
 import { Gallery } from "./components/Gallery";
 import { Map } from "./components/Map";
 import { KOAActivities } from "./components/KOAActivities";
+import { Rooms } from "./components/Rooms";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: "gallery", Component: Gallery },
       { path: "map", Component: Map },
       { path: "koa", Component: KOAActivities },
+      { path: "rooms", Component: Rooms },
     ],
   },
-], { basename: "/family-reunion" });
+]);

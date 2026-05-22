@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { Trees, Calendar, Images, MapPin, Tent } from "lucide-react";
+import { Trees, Calendar, Images, MapPin, Tent, Hotel } from "lucide-react";
 
 export function Root() {
   const location = useLocation();
@@ -10,6 +10,7 @@ export function Root() {
     { path: "/gallery", label: "Gallery", icon: Images },
     { path: "/map", label: "Map", icon: MapPin },
     { path: "/koa", label: "KOA", icon: Tent },
+    { path: "/rooms", label: "Rooms", icon: Hotel },
   ];
 
   return (

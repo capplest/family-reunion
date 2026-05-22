@@ -78,9 +78,17 @@ export function Gallery() {
         <Card className="mt-12 bg-secondary text-secondary-foreground">
           <CardContent className="pt-6 text-center">
             <h3 className="text-xl mb-2">Share Your Memories!</h3>
-            <p>
-              Bring your favorite family photos to the reunion. We'll create a new album together with everyone's contributions.
+            <p className="mb-3">
+              Take lots of pictures at the reunion and upload them to our shared Google Photos album — everyone can see and add to it!
             </p>
+            <a
+              href="https://photos.app.goo.gl/4RRDXKhXZ3pwTr6n9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block underline underline-offset-2 font-medium hover:opacity-80 transition-opacity"
+            >
+              Open the 2026 Reunion Album →
+            </a>
           </CardContent>
         </Card>
       </div>
