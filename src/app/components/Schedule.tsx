@@ -1,36 +1,192 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { Calendar, Clock, MapPin, Utensils } from "lucide-react";
+import { Link } from "react-router";
 
-const scheduleData = [
+type ScheduleEvent = {
+  time: string;
+  title: string;
+  location: string;
+  description?: string;
+  details?: string[];
+};
+
+type ScheduleDay = {
+  date: string;
+  subtitle: string;
+  events: ScheduleEvent[];
+};
+
+const scheduleData: ScheduleDay[] = [
   {
     date: "Wednesday, July 15",
+    subtitle: "Arrival Day",
     events: [
-      { time: "4:00 PM", title: "Check-in at Santa Cruz KOA", location: "KOA Main Office", description: "Arrive and check into your campsite. Pick up your welcome packet and reunion t-shirt!" },
-      { time: "Evening", title: "Settle In", location: "Your Campsite", description: "Get settled, set up camp, and relax after your travels." },
+      {
+        time: "4:00 PM",
+        title: "Check-in at Santa Cruz KOA",
+        location: "KOA Main Office",
+        description: "Arrive and get settled in your cabin.",
+      },
+      {
+        time: "5:30 – 7:00 PM",
+        title: "Dinner — Burgers & Hot Dogs",
+        location: "KOA",
+        description: "Dinner together to kick off the reunion! Please let us know if you won't make it.",
+      },
     ],
   },
   {
     date: "Thursday, July 16",
+    subtitle: "Beach Day, Pizza Night & Golden Hour Photos",
     events: [
-      { time: "TBD", title: "Activities & Events", location: "Various", description: "Schedule to be announced - stay tuned for more details!" },
+      {
+        time: "8:30 – 9:30 AM",
+        title: "Breakfast at the KOA",
+        location: "KOA",
+        description: "Bagels, cream cheese, yogurt, and fresh fruit provided.",
+      },
+      {
+        time: "9:30 – 10:00 AM",
+        title: "Prep, Pack & Cooler Staging",
+        location: "KOA",
+        description: "Pack your beach bags and load up the coolers.",
+      },
+      {
+        time: "10:00 AM – 2:00 PM",
+        title: "Beach Outing",
+        location: "Manresa Main State Beach",
+        description: "A morning at the beach. Picnic lunch on the sand at 12:00 PM.",
+      },
+      {
+        time: "2:00 – 5:30 PM",
+        title: "KOA Afternoon & Clean Up",
+        location: "KOA",
+        description: "Relax and enjoy KOA amenities.",
+      },
+      {
+        time: "5:30 – 7:00 PM",
+        title: "Dinner — Village Host Pizza and Grill",
+        location: "Takeout, eat at KOA",
+        description: "Pizza night! Takeout from Village Host Pizza and Grill.",
+      },
+      {
+        time: "7:15 – 8:15 PM",
+        title: "📷 Family Pictures",
+        location: "Golden Hour — Location TBD",
+        description: "Group family photos during golden hour.",
+      },
+      {
+        time: "8:15 PM+",
+        title: "Sunset S'mores & Campfire",
+        location: "KOA",
+      },
     ],
   },
   {
     date: "Friday, July 17",
+    subtitle: "Boardwalk Adventure & Mexican Takeout",
     events: [
-      { time: "TBD", title: "Activities & Events", location: "Various", description: "Schedule to be announced - stay tuned for more details!" },
+      {
+        time: "8:30 – 9:30 AM",
+        title: "Breakfast",
+        location: "Individual Campsites",
+        description: "On your own at individual campsites.",
+      },
+      {
+        time: "9:30 – 10:15 AM",
+        title: "Carpool to the Santa Cruz Boardwalk",
+        location: "Depart KOA",
+        description: "Leaving by 9:30 AM ensures you reach the parking lots by 10:15 AM. Rides open at 11:00 AM.",
+      },
+      {
+        time: "11:00 AM – 3:30 PM",
+        title: "Santa Cruz Beach Boardwalk",
+        location: "Santa Cruz Beach Boardwalk",
+        description: "Enjoy historic rides, midway games, and coastal sights. At 12:30 PM the group meets at a pre-designated spot — bring a self-packed lunch or grab food at the Boardwalk.",
+      },
+      {
+        time: "3:30 – 5:30 PM",
+        title: "Rest & Regroup at the KOA",
+        location: "KOA",
+      },
+      {
+        time: "5:30 – 6:30 PM",
+        title: "Dinner — Manuel's Mexican Restaurant",
+        location: "Takeout, eat at KOA",
+        description: "Takeout from Manuel's Mexican Restaurant.",
+      },
+      {
+        time: "6:45 – 8:30 PM",
+        title: "Dessert — Marianne's Ice Cream",
+        location: "Aptos Location (11 min drive)",
+      },
     ],
   },
   {
     date: "Saturday, July 18",
+    subtitle: "Redwood Hike & Optional U-Pick",
     events: [
-      { time: "TBD", title: "Activities & Events", location: "Various", description: "Schedule to be announced - stay tuned for more details!" },
+      {
+        time: "9:00 – 10:00 AM",
+        title: "Breakfast",
+        location: "Individual Campsites",
+        description: "On your own at the campsites.",
+      },
+      {
+        time: "10:00 – 10:30 AM",
+        title: "Drive to Nisene Marks State Park",
+        location: "Aptos Creek Road Entrance",
+      },
+      {
+        time: "10:30 AM – 1:30 PM",
+        title: "🌲 Redwoods Hike",
+        location: "The Forest of Nisene Marks State Park",
+        description: "Park near George's Picnic Area. Day use fee: $8/car (cash or card). Three trail options:",
+        details: [
+          "Kid-friendly: Old Growth Loop (~1.2 mi) — Ancient redwoods and a twisted grove. Kids can play by Aptos Creek after the hike.",
+          "Mountain bikes: Epicenter Cycling just outside the park has rentals and trail recommendations.",
+          "Harder hike: Loma Prieta Grade Trail (~4.6 mi) — Historic sites and redwoods.",
+        ],
+      },
+      {
+        time: "12:00 PM",
+        title: "Picnic Lunch",
+        location: "George's Picnic Area, Nisene Marks",
+        description: "Self-packed lunches at the picnic tables under the giant trees.",
+      },
+      {
+        time: "1:30 – 5:30 PM",
+        title: "Open Afternoon",
+        location: "KOA or Crystal Bay Farms",
+        description: "Two options:",
+        details: [
+          "Relax at the KOA",
+          "Crystal Bay Farms U-Pick (3 min from KOA) — Strawberries and flowers",
+        ],
+      },
+      {
+        time: "5:30 – 7:30 PM",
+        title: "Dinner — Aptos St. BBQ",
+        location: "Takeout, eat at KOA",
+        description: "Takeout from Aptos St. BBQ.",
+      },
+      {
+        time: "7:30 PM+",
+        title: "S'mores",
+        location: "KOA",
+      },
     ],
   },
   {
     date: "Sunday, July 19",
+    subtitle: "Pack Up & Checkout",
     events: [
-      { time: "11:00 AM", title: "Check-out from Santa Cruz KOA", location: "KOA Main Office", description: "Say goodbye and safe travels home! Thank you for joining us!" },
+      {
+        time: "11:00 AM",
+        title: "Checkout",
+        location: "KOA Main Office",
+        description: "Safe travels home! Thank you for a wonderful reunion.",
+      },
     ],
   },
 ];
@@ -39,43 +195,70 @@ export function Schedule() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl mb-4">Reunion Schedule</h1>
-          <p className="text-lg text-muted-foreground">
-            Your guide to all the fun activities and events planned for the weekend
-          </p>
+          <p className="text-lg text-muted-foreground">July 15–19, 2026 · Santa Cruz KOA</p>
         </div>
 
-        {/* Calendar Days */}
-        <div className="space-y-8">
+        {/* Meal Note */}
+        <div className="mb-10 p-5 bg-secondary rounded-xl flex items-start gap-3">
+          <Utensils className="size-5 text-secondary-foreground mt-0.5 shrink-0" />
+          <div>
+            <p className="font-semibold text-secondary-foreground mb-1">Note on Meals</p>
+            <p className="text-sm text-secondary-foreground/90">
+              All dinners and breakfast on Thursday (7/16) will be provided together as a group.
+              For all other meals you'll need to pack your own food. Nearest grocery stores are
+              listed on the{" "}
+              <Link to="/map" className="underline underline-offset-2 font-medium">
+                Maps tab
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+
+        {/* Days */}
+        <div className="space-y-10">
           {scheduleData.map((day, dayIndex) => (
             <div key={dayIndex}>
-              {/* Day Header */}
-              <div className="flex items-center gap-3 mb-4">
-                <Calendar className="size-6 text-primary" />
-                <h2 className="text-2xl">{day.date}</h2>
+              <div className="flex items-start gap-3 mb-5">
+                <Calendar className="size-6 text-primary shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-2xl leading-tight">{day.date}</h2>
+                  <p className="text-muted-foreground text-sm">{day.subtitle}</p>
+                </div>
               </div>
 
-              {/* Events for this day */}
-              <div className="space-y-4 ml-9">
+              <div className="space-y-3 ml-9">
                 {day.events.map((event, eventIndex) => (
                   <Card key={eventIndex} className="hover:shadow-md transition-shadow">
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-2">
                       <div className="flex flex-wrap items-start justify-between gap-2">
-                        <CardTitle className="text-lg">{event.title}</CardTitle>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <CardTitle className="text-base">{event.title}</CardTitle>
+                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground shrink-0">
                           <Clock className="size-4" />
                           <span>{event.time}</span>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <div className="flex items-start gap-2 mb-2">
-                        <MapPin className="size-4 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{event.location}</span>
+                    <CardContent className="pt-0">
+                      <div className="flex items-center gap-1.5 mb-2 text-sm text-muted-foreground">
+                        <MapPin className="size-4 shrink-0 text-accent" />
+                        <span>{event.location}</span>
                       </div>
-                      <p className="text-muted-foreground">{event.description}</p>
+                      {event.description && (
+                        <p className="text-sm text-muted-foreground">{event.description}</p>
+                      )}
+                      {event.details && (
+                        <ul className="mt-2 space-y-1.5">
+                          {event.details.map((detail, i) => (
+                            <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                              <span className="text-primary shrink-0">•</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
@@ -83,7 +266,6 @@ export function Schedule() {
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );

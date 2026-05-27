@@ -1,228 +1,249 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { MapPin, Phone, Clock, Navigation, TreePine, Wind } from "lucide-react";
+import { MapPin, Phone, Clock, Navigation, ShoppingCart, ExternalLink } from "lucide-react";
+
+type Location = {
+  name: string;
+  when: string;
+  description: string;
+  mapsUrl: string;
+  note?: string;
+};
+
+const dayLocations: { date: string; subtitle: string; locations: Location[] }[] = [
+  {
+    date: "Thursday, July 16",
+    subtitle: "Beach Day & Pizza Night",
+    locations: [
+      {
+        name: "Manresa Main State Beach",
+        when: "10:00 AM – 2:00 PM",
+        description: "Our beach outing for the day. Pack your beach gear — picnic lunch on the sand at noon.",
+        mapsUrl: "https://maps.google.com/?q=Manresa+State+Beach+Aptos+CA",
+        note: "~15 min drive from KOA",
+      },
+      {
+        name: "Village Host Pizza and Grill",
+        when: "Dinner pickup ~5:30 PM",
+        description: "Pizza night takeout. Someone will coordinate the pickup order.",
+        mapsUrl: "https://maps.google.com/?q=Village+Host+Pizza+and+Grill+Aptos+CA",
+        note: "Takeout — eat at KOA",
+      },
+    ],
+  },
+  {
+    date: "Friday, July 17",
+    subtitle: "Boardwalk Adventure & Mexican Takeout",
+    locations: [
+      {
+        name: "Santa Cruz Beach Boardwalk",
+        when: "11:00 AM – 3:30 PM",
+        description: "Carpool from KOA at 9:30 AM to arrive before rides open at 11 AM. Historic rides, midway games, and beach views.",
+        mapsUrl: "https://maps.google.com/?q=Santa+Cruz+Beach+Boardwalk",
+        note: "400 Beach St, Santa Cruz · ~30 min drive",
+      },
+      {
+        name: "Manuel's Mexican Restaurant",
+        when: "Dinner pickup ~5:30 PM",
+        description: "Mexican takeout dinner. Someone will coordinate the pickup order.",
+        mapsUrl: "https://maps.google.com/?q=Manuel's+Mexican+Restaurant+Watsonville+CA",
+        note: "Takeout — eat at KOA",
+      },
+      {
+        name: "Marianne's Ice Cream (Aptos)",
+        when: "6:45 – 8:30 PM",
+        description: "Dessert run! The Aptos location of a Santa Cruz classic.",
+        mapsUrl: "https://maps.google.com/?q=Marianne's+Ice+Cream+Aptos+CA",
+        note: "11 min drive from KOA",
+      },
+    ],
+  },
+  {
+    date: "Saturday, July 18",
+    subtitle: "Redwood Hike & Optional U-Pick",
+    locations: [
+      {
+        name: "The Forest of Nisene Marks State Park",
+        when: "10:30 AM – 1:30 PM",
+        description: "Enter off Aptos Creek Road. Park near George's Picnic Area. Day use fee $8/car (cash or card). Three trail options: Old Growth Loop (1.2 mi, kid-friendly), Loma Prieta Grade Trail (4.6 mi, harder), or mountain biking.",
+        mapsUrl: "https://maps.google.com/?q=Forest+of+Nisene+Marks+State+Park+Aptos+CA",
+        note: "~20 min drive from KOA",
+      },
+      {
+        name: "Epicenter Cycling",
+        when: "Before hike if biking",
+        description: "Bike rentals and trail recommendations just outside the Nisene Marks park entrance.",
+        mapsUrl: "https://maps.google.com/?q=Epicenter+Cycling+Aptos+CA",
+        note: "Just outside Nisene Marks entrance",
+      },
+      {
+        name: "Crystal Bay Farms U-Pick",
+        when: "Optional — 1:30 – 5:30 PM",
+        description: "Pick your own strawberries and flowers. A short drive from the KOA — great afternoon activity after the hike.",
+        mapsUrl: "https://maps.google.com/?q=Crystal+Bay+Farms+Watsonville+CA",
+        note: "3 min drive from KOA",
+      },
+      {
+        name: "Aptos St. BBQ",
+        when: "Dinner pickup ~5:30 PM",
+        description: "BBQ takeout dinner to close out our last night together.",
+        mapsUrl: "https://maps.google.com/?q=Aptos+Street+BBQ+Aptos+CA",
+        note: "Takeout — eat at KOA",
+      },
+    ],
+  },
+];
+
+const groceryStores: { name: string; note: string; mapsUrl: string }[] = [
+  {
+    name: "New Leaf Community Market",
+    note: "~10 min from KOA · Full grocery + deli",
+    mapsUrl: "https://maps.google.com/?q=New+Leaf+Community+Market+Aptos+CA",
+  },
+  {
+    name: "Safeway",
+    note: "~10 min from KOA · Large grocery store",
+    mapsUrl: "https://maps.google.com/?q=Safeway+Watsonville+CA",
+  },
+  {
+    name: "Trader Joe's",
+    note: "~25 min · Santa Cruz",
+    mapsUrl: "https://maps.google.com/?q=Trader+Joe's+Santa+Cruz+CA",
+  },
+];
 
 export function Map() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl mb-4">Location & Directions</h1>
           <p className="text-lg text-muted-foreground">
-            Everything you need to know about getting to the reunion
+            Everything you need to know about getting around
           </p>
         </div>
 
-        {/* Main Venue Info */}
-        <Card className="mb-8">
+        {/* KOA Base */}
+        <Card className="mb-10">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <MapPin className="size-6 text-primary" />
-              Reunion Venue
+              Home Base — Santa Cruz KOA
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <h3 className="mb-2">Santa Cruz KOA</h3>
-              <p className="text-muted-foreground">1186 San Andreas Rd, Watsonville, CA 95076</p>
+          <CardContent className="space-y-3">
+            <p className="text-muted-foreground">1186 San Andreas Rd, Watsonville, CA 95076</p>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Phone className="size-4 text-accent" />
+              <span>(831) 722-0551</span>
             </div>
-            
-            <div className="flex items-start gap-2">
-              <Phone className="size-4 mt-1 text-accent" />
-              <div>
-                <p className="font-medium">Contact</p>
-                <p className="text-muted-foreground">(831) 722-0551</p>
-              </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Clock className="size-4 text-accent" />
+              <span>Check-in: Wednesday, July 15 · 4:00 PM &nbsp;·&nbsp; Check-out: Sunday, July 19 · 11:00 AM</span>
             </div>
-
-            <div className="flex items-start gap-2">
-              <Clock className="size-4 mt-1 text-accent" />
-              <div>
-                <p className="font-medium">Check-in</p>
-                <p className="text-muted-foreground">Wednesday, July 15 • 4:00 PM</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-2">
-              <Clock className="size-4 mt-1 text-accent" />
-              <div>
-                <p className="font-medium">Check-out</p>
-                <p className="text-muted-foreground">Sunday, July 19 • 11:00 AM</p>
-              </div>
-            </div>
+            <a
+              href="https://maps.google.com/?q=Santa+Cruz+KOA+1186+San+Andreas+Rd+Watsonville+CA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:underline mt-1"
+            >
+              <ExternalLink className="size-4" />
+              Open in Google Maps
+            </a>
           </CardContent>
         </Card>
 
-        {/* Embedded Map */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Map View</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102969.5384882656!2d-122.13126848359376!3d36.97454929999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e441b7c36d549%3A0x52ca104b2ad7f985!2sSanta%20Cruz%2C%20CA!5e0!3m2!1sen!2sus!4v1645564892123!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="Santa Cruz Location Map"
-              ></iframe>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4 text-center">
-              Click to open in Google Maps for directions
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* Driving Directions */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Navigation className="size-5 text-primary" />
-                From San Jose Airport
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="space-y-2 text-muted-foreground">
-                <li>1. Head south on Airport Blvd toward N 1st St</li>
-                <li>2. Merge onto US-101 S</li>
-                <li>3. Take exit 397A for CA-152 W/CA-156 W toward Watsonville</li>
-                <li>4. Continue on CA-152 W</li>
-                <li>5. Turn right onto San Andreas Rd</li>
-                <li>6. Santa Cruz KOA will be on your right</li>
-              </ol>
-              <p className="mt-4 text-sm">
-                <strong>Approximate time:</strong> 45 minutes
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Navigation className="size-5 text-primary" />
-                From San Francisco Airport
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="space-y-2 text-muted-foreground">
-                <li>1. Head southeast on Link Rd toward US-101 S</li>
-                <li>2. Merge onto US-101 S toward San Jose</li>
-                <li>3. Take exit 397A for CA-152 W/CA-156 W toward Watsonville</li>
-                <li>4. Continue on CA-152 W</li>
-                <li>5. Turn right onto San Andreas Rd</li>
-                <li>6. Santa Cruz KOA will be on your right</li>
-              </ol>
-              <p className="mt-4 text-sm">
-                <strong>Approximate time:</strong> 1 hour 30 minutes
-              </p>
-            </CardContent>
-          </Card>
+        {/* Getting There */}
+        <div className="mb-10">
+          <h2 className="text-2xl mb-5 flex items-center gap-2">
+            <Navigation className="size-6 text-primary" />
+            Getting There
+          </h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { from: "San Jose Airport (SJC)", time: "~45 min", directions: "US-101 S → CA-152 W → San Andreas Rd" },
+              { from: "San Francisco Airport (SFO)", time: "~1 hr 30 min", directions: "US-101 S → CA-152 W → San Andreas Rd" },
+              { from: "Los Angeles", time: "~5 hr 30 min", directions: "US-101 N → CA-156 W → CA-1 N → Redwood Dr" },
+            ].map((item) => (
+              <Card key={item.from}>
+                <CardContent className="pt-5">
+                  <p className="font-medium mb-1">{item.from}</p>
+                  <p className="text-sm text-primary mb-2">{item.time}</p>
+                  <p className="text-sm text-muted-foreground">{item.directions}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
-        {/* LA Directions */}
-        <div className="mb-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Navigation className="size-5 text-primary" />
-                From Los Angeles
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="space-y-2 text-muted-foreground">
-                <li>1. Take US-101 N toward San Luis Obispo</li>
-                <li>2. Continue on US-101 N past Salinas</li>
-                <li>3. Take CA-156 W toward Castroville</li>
-                <li>4. Merge onto CA-1 N toward Santa Cruz</li>
-                <li>5. Turn left on Redwood Drive</li>
-              </ol>
-              <p className="mt-4 text-sm">
-                <strong>Approximate time:</strong> 5 hours 30 minutes
-              </p>
-            </CardContent>
-          </Card>
+        {/* Activity Locations by Day */}
+        <div className="mb-10">
+          <h2 className="text-2xl mb-6">Activity Locations</h2>
+          <div className="space-y-8">
+            {dayLocations.map((day) => (
+              <div key={day.date}>
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold">{day.date}</h3>
+                  <p className="text-sm text-muted-foreground">{day.subtitle}</p>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {day.locations.map((loc) => (
+                    <Card key={loc.name} className="flex flex-col">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-base">{loc.name}</CardTitle>
+                        <p className="text-xs text-primary font-medium">{loc.when}</p>
+                      </CardHeader>
+                      <CardContent className="pt-0 flex flex-col flex-1 gap-2">
+                        <p className="text-sm text-muted-foreground flex-1">{loc.description}</p>
+                        {loc.note && (
+                          <p className="text-xs text-muted-foreground/70">{loc.note}</p>
+                        )}
+                        <a
+                          href={loc.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:underline mt-1"
+                        >
+                          <ExternalLink className="size-4" />
+                          Get Directions
+                        </a>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Nearby Attractions */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <TreePine className="size-5 text-accent" />
-              Nearby Attractions
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <h4 className="mb-1">Santa Cruz Beach Boardwalk</h4>
-                <p className="text-sm text-muted-foreground mb-1">5 minutes away</p>
-                <p className="text-sm text-muted-foreground">
-                  Classic seaside amusement park with rides and games
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="mb-1">Natural Bridges State Beach</h4>
-                <p className="text-sm text-muted-foreground mb-1">8 minutes away</p>
-                <p className="text-sm text-muted-foreground">
-                  Beautiful beach with tide pools and rock formations
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="mb-1">Henry Cowell Redwoods State Park</h4>
-                <p className="text-sm text-muted-foreground mb-1">12 minutes away</p>
-                <p className="text-sm text-muted-foreground">
-                  Ancient redwood groves with hiking trails
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="mb-1">Downtown Santa Cruz</h4>
-                <p className="text-sm text-muted-foreground mb-1">7 minutes away</p>
-                <p className="text-sm text-muted-foreground">
-                  Shopping, restaurants, and Pacific Avenue
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Parking Info */}
-        <Card className="mt-6 bg-muted">
-          <CardContent className="pt-6">
-            <h4 className="mb-2">Parking Information</h4>
-            <p className="text-sm text-muted-foreground">
-              Free parking is available on-site for all reunion guests. Overflow parking is located in the adjacent lot. 
-              Please display your reunion parking pass (included in your welcome packet) on your dashboard.
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* Weather Tips */}
-        <Card className="mt-6 bg-accent text-accent-foreground">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Wind className="size-5" />
-              Santa Cruz Weather Tips
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-3">
-              Santa Cruz has a coastal Mediterranean climate. In July, you can expect:
-            </p>
-            <ul className="space-y-2">
-              <li>• <strong>Daytime temperatures:</strong> 65-75°F (18-24°C)</li>
-              <li>• <strong>Morning/evening:</strong> Can be foggy and cool, especially near the coast</li>
-              <li>• <strong>Dress in layers:</strong> You'll be comfortable no matter the weather</li>
-              <li>• <strong>Sun protection:</strong> Even on foggy days, UV rays can be strong</li>
-            </ul>
-          </CardContent>
-        </Card>
+        {/* Grocery Stores */}
+        <div>
+          <h2 className="text-2xl mb-5 flex items-center gap-2">
+            <ShoppingCart className="size-6 text-primary" />
+            Nearby Grocery Stores
+          </h2>
+          <p className="text-muted-foreground mb-4 text-sm">
+            For breakfasts, lunches, and snacks you're packing yourself — see the Schedule tab for which meals are covered.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {groceryStores.map((store) => (
+              <Card key={store.name}>
+                <CardContent className="pt-5">
+                  <p className="font-medium mb-1">{store.name}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{store.note}</p>
+                  <a
+                    href={store.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:underline"
+                  >
+                    <ExternalLink className="size-4" />
+                    View on Maps
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

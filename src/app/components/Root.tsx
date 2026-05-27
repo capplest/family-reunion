@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { Trees, Calendar, Images, MapPin, Tent, Hotel } from "lucide-react";
+import { Trees, Calendar, MapPin, Tent, Hotel } from "lucide-react";
 
 export function Root() {
   const location = useLocation();
@@ -7,10 +7,9 @@ export function Root() {
   const navItems = [
     { path: "/", label: "Home", icon: Trees },
     { path: "/schedule", label: "Schedule", icon: Calendar },
-    { path: "/gallery", label: "Gallery", icon: Images },
+    { path: "/rooms", label: "Rooms", icon: Hotel },
     { path: "/map", label: "Map", icon: MapPin },
     { path: "/koa", label: "KOA", icon: Tent },
-    { path: "/rooms", label: "Rooms", icon: Hotel },
   ];
 
   return (
