@@ -187,6 +187,12 @@ const scheduleData: ScheduleDay[] = [
         location: "KOA Main Office",
         description: "Safe travels home! Thank you for a wonderful reunion.",
       },
+      {
+        time: "After checkout",
+        title: "Monterey Bay Aquarium",
+        location: "Monterey, CA (~45 min drive)",
+        description: "If you're planning to visit the Monterey Bay Aquarium, today is the perfect day to go on your way out. It's about 45 minutes south of the KOA.",
+      },
     ],
   },
 ];
