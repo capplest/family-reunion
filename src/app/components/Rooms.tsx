@@ -48,7 +48,8 @@ const rooms = [
   },
   {
     id: "DC181",
-    capacity: 6,
+    capacity: 4,
+    sleeps: 6,
     layout: "1 room queen loft",
     occupants: ["Rob Crocketts"],
     spotsLeft: 0,
@@ -152,7 +153,7 @@ export function Rooms() {
 
                 <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <Users className="size-4 shrink-0" />
-                  <span>Sleeps {room.capacity}</span>
+                  <span>Sleeps {room.sleeps ?? room.capacity}</span>
                 </div>
 
                 <div className="mt-1">
