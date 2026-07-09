@@ -71,8 +71,8 @@ const scheduleData: ScheduleDay[] = [
       {
         time: "5:00 – 6:00 PM",
         title: "📷 Family Pictures",
-        location: "Golden Hour — Location TBD",
-        description: "Group family photos during golden hour.",
+        location: "Location TBD",
+        description: "Group family photos.",
       },
       {
         time: "6:00 – 7:00 PM",
