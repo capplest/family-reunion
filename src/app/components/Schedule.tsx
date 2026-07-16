@@ -162,12 +162,8 @@ const scheduleData: ScheduleDay[] = [
       {
         time: "1:30 – 5:30 PM",
         title: "Open Afternoon",
-        location: "KOA or Crystal Bay Farms",
-        description: "Two options:",
-        details: [
-          "Relax at the KOA",
-          "Crystal Bay Farms U-Pick (3 min from KOA) — Strawberries and flowers",
-        ],
+        location: "KOA",
+        description: "Free time — relax and enjoy KOA amenities.",
       },
       {
         time: "5:30 – 7:30 PM",
