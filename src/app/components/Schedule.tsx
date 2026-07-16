@@ -69,16 +69,16 @@ const scheduleData: ScheduleDay[] = [
         description: "Relax and enjoy KOA amenities.",
       },
       {
-        time: "5:00 – 6:00 PM",
-        title: "📷 Family Pictures",
-        location: "Location TBD",
-        description: "Group family photos.",
-      },
-      {
-        time: "6:00 – 7:00 PM",
+        time: "5:00 – 6:30 PM",
         title: "Dinner — Village Host Pizza and Grill",
         location: "Takeout, eat at KOA",
         description: "Pizza night! Takeout from Village Host Pizza and Grill.",
+      },
+      {
+        time: "6:30 PM",
+        title: "📷 Family Pictures",
+        location: "Location TBD",
+        description: "Group family photos.",
       },
       {
         time: "7:00 PM+",
