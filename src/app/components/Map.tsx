@@ -64,7 +64,7 @@ const dayLocations: { date: string; subtitle: string; locations: Location[] }[] 
       {
         name: "The Forest of Nisene Marks State Park",
         when: "10:30 AM – 1:30 PM",
-        description: "Enter off Aptos Creek Road. Park near George's Picnic Area. Day use fee $8/car (cash or card). Three trail options: Old Growth Loop (1.2 mi, kid-friendly), Loma Prieta Grade Trail (4.6 mi, harder), or mountain biking.",
+        description: "Park at the entrance station lot (by the Emmett Reed picnic area) — day-use fee per car, so carpool if you can! Overflow parking along Aptos Creek Road below the kiosk if the lot is full. Hike the Old Growth Loop Trail (2.2 mi, family-friendly) through old-growth redwoods, including the famous Twisted Grove. Add the Oak Ridge Trail for a longer ~4 mi hike with a climb to a ridge of oak trees.",
         mapsUrl: "https://maps.google.com/?q=Forest+of+Nisene+Marks+State+Park+Aptos+CA",
         note: "~20 min drive from KOA",
       },
