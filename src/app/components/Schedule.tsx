@@ -146,17 +146,17 @@ const scheduleData: ScheduleDay[] = [
         time: "10:30 AM – 1:30 PM",
         title: "🌲 Redwoods Hike",
         location: "The Forest of Nisene Marks State Park",
-        description: "Park near George's Picnic Area. Day use fee: $8/car (cash or card). Three trail options:",
+        description: "Park at the Porter Family Picnic Area. Day use fee: $8/car (cash or card). Three trail options:",
         details: [
-          "Kid-friendly: Old Growth Loop (~1.2 mi) — Ancient redwoods and a twisted grove. Kids can play by Aptos Creek after the hike.",
-          "Mountain bikes: Epicenter Cycling just outside the park has rentals and trail recommendations.",
-          "Harder hike: Loma Prieta Grade Trail (~4.6 mi) — Historic sites and redwoods.",
+          "Easy (kids): Loma Prieta Grade Loop — 1.8 mi to the Porter House Site, Loma Prieta Mill Site, and Margaret's Bridge. Mostly flat old railroad grade with Aptos Creek right there.",
+          "Moderate: Loma Prieta Grade Trail to Hoffman's Historic Site — 4.6 mi round trip, 350 ft gain, a gentle uphill along the old steam train route.",
+          "Hard: Continue past Hoffman's through Big Stump Gulch to Bridge Creek Trail and Maple Falls, returning via Bridge Creek — ~7.7 mi loop.",
         ],
       },
       {
         time: "12:00 PM",
         title: "Picnic Lunch",
-        location: "George's Picnic Area, Nisene Marks",
+        location: "Porter Family Picnic Area, Nisene Marks",
         description: "Self-packed lunches at the picnic tables under the giant trees.",
       },
       {
