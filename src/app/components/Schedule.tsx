@@ -146,18 +146,19 @@ const scheduleData: ScheduleDay[] = [
         time: "10:30 AM – 1:30 PM",
         title: "🌲 Redwoods Hike",
         location: "The Forest of Nisene Marks State Park",
-        description: "Park at the Porter Family Picnic Area. Day use fee: $8/car (cash or card). Three trail options:",
+        description:
+          "We'll be hiking the beautiful Old Growth Loop Trail (2.2 miles) through some of the most stunning old-growth redwoods in the park, including the famous “Twisted Grove.”",
         details: [
-          "Easy (kids): Loma Prieta Grade Loop — 1.8 mi to the Porter House Site, Loma Prieta Mill Site, and Margaret's Bridge. Mostly flat old railroad grade with Aptos Creek right there.",
-          "Moderate: Loma Prieta Grade Trail to Hoffman's Historic Site — 4.6 mi round trip, 350 ft gain, a gentle uphill along the old steam train route.",
-          "Hard: Continue past Hoffman's through Big Stump Gulch to Bridge Creek Trail and Maple Falls, returning via Bridge Creek — ~7.7 mi loop.",
+          "Parking: Park at the entrance station lot (by the Emmett Reed picnic area). There's a day-use fee per car, so carpool if you can! If the lot is full, overflow parking is available along Aptos Creek Road below the kiosk.",
+          "The hike: The main loop is 2.2 miles and family-friendly. Anyone who wants a longer hike can add the Oak Ridge Trail, which branches off the loop and brings the total to about 4 miles with a good climb to a ridge of oak trees.",
         ],
       },
       {
         time: "12:00 PM",
         title: "Picnic Lunch",
-        location: "Porter Family Picnic Area, Nisene Marks",
-        description: "Self-packed lunches at the picnic tables under the giant trees.",
+        location: "Pourroy Picnic Area, Nisene Marks",
+        description:
+          "We'll finish with lunch at the Pourroy Picnic Area, a shady spot right on Aptos Creek. Kids can wade and play alongside the creek — pack water shoes and a towel! Note: the picnic area is on the trail, so lunch gets carried in via backpack.",
       },
       {
         time: "1:30 – 5:30 PM",
